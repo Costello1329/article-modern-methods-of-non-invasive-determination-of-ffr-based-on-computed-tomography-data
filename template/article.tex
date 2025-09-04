@@ -112,12 +112,12 @@ ischemia. The authors conclude that incorporating data obtained through modeling
 prediction, indicating the positive impact of non-invasive FFR assessment in clinical practice.
 
 Similar findings are reported in publications \cite{patel2020advance, villines2020advance, norgaard2019ctffr,
-agasthi2018meta}. Specifically, study \cite{patel2020advance} demonstrates significantly lower mortality in the group
-of patients with negative non-invasive FFR results compared to those with positive results. Meanwhile, publication
-\cite{agasthi2018meta} shows that the use of non-invasive FFR methods yields high diagnostic accuracy and performs
-well in comparison to invasive FFR in assessing the significance of coronary stenotic lesions. These studies emphasize
-that non-invasive FFR techniques are still evolving and require further refinement and clinical validation before
-widespread clinical implementation.
+agasthi2018meta, douglas_2009, vanrosendael_2020, jonas_2025, jensen_2012}. Specifically, study
+\cite{patel2020advance} demonstrates significantly lower mortality in the group of patients with negative non-invasive
+FFR results compared to those with positive results. Meanwhile, publication \cite{agasthi2018meta, rao_2023} shows that
+the use of non-invasive FFR methods yields high diagnostic accuracy and performs well in comparison to invasive FFR in
+assessing the significance of coronary stenotic lesions. These studies emphasize that non-invasive FFR techniques are
+still evolving and require further refinement and clinical validation before widespread clinical implementation.
 
 \section{Methods of Non-invasive FFR Determination}
 
@@ -164,14 +164,14 @@ the space $\mathbf{C}^1$.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{image/pic1.png}
-    \caption{The process of filling the region of interest with a deformable body \cite{mcinerney1995fem}}
+    \caption{The process of filling the region of interest with a deformable body \cite{ mcinerney1995fem, mcinerney2002deformable, mcinerney1996deformable, terzopoulos1997deformable, mcinerney1999topology}}
 \end{figure}
 
 Another method involves the interpolation of the boundaries of the heart and blood vessels using splines, resulting in
 a smooth surface that segments the region of interest \cite{ecabert2008automatic}. Compared to polygonal models, such a
 representation may be more suitable for simulating fluid flow for FFR estimation, as it allows for more precise and
 interactive control over the generation of the finite element mesh. This, in theory, can lead to greater accuracy of
-the simulation results.
+the simulation results \cite{morris_2013, fluids_2019, marcinno_2025}.
 
 The algorithm described in publication \cite{lu2020vessels} enables vessel geometry reconstruction by first generating
 an intermediate one-dimensional structure, similar to the approach in study \cite{carson2019benchmark}. The central
@@ -180,15 +180,16 @@ features using Frenet formulas. The output of the algorithm is a three-dimension
 which can be used to run simulations and model blood flow dynamics.
 
 Such reconstruction methods are particularly valuable in the context of patient-specific modeling, where anatomical
-variability plays a critical role in both diagnosis and treatment planning. Unlike generic or population-based models,
-individualized vessel reconstructions account for the unique topological and morphological features of a patient's
-vascular network, including curvature, bifurcations, and local variations in diameter. These parameters are essential
-for achieving accurate hemodynamic simulations, especially when calculating pressure gradients for non-invasive FFR
-estimation. Furthermore, the use of Frenet frames to reconstruct vessel walls based on extracted centerlines allows for
-the generation of smooth and anatomically consistent geometries, which are well-suited for finite element meshing and
-subsequent computational fluid dynamics (CFD) analysis. This approach not only enhances the physiological relevance of
-simulations but also reduces numerical instabilities during flow modeling, thereby improving the robustness and
-reliability of diagnostic predictions.
+variability plays a critical role in both diagnosis and treatment planning \cite{chakshu_2022}. Unlike generic or
+population-based models, individualized vessel reconstructions account for the unique topological and morphological
+features of a patient's vascular network, including curvature, bifurcations, and local variations in diameter. These
+parameters are essential for achieving accurate hemodynamic simulations, especially when calculating pressure gradients
+for non-invasive FFR estimation \cite{yu_2022}. Furthermore, the use of Frenet frames to reconstruct vessel walls based
+on extracted centerlines allows for the generation of smooth and anatomically consistent geometries, which are
+well-suited for finite element meshing and subsequent computational fluid dynamics (CFD) analysis
+\cite{csippa_2021_decomposition}. This approach not only enhances the physiological relevance of simulations but also
+reduces numerical instabilities during flow modeling, thereby improving the robustness and reliability of diagnostic
+predictions \cite{decroocq_2023}.
 
 
 \begin{figure}[H]
@@ -207,14 +208,16 @@ applicability and significant potential for medical image segmentation tasks.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{image/pic3.png}
-    \caption{Comparison of segmentation results using the GT algorithm and U-net \cite{ramakrishnan2023vessels}}
+    \caption{Comparison of segmentation results using the GT algorithm and U-net
+    \cite{ramakrishnan2023vessels, kohl_2019}}
 \end{figure}
 
 Study \cite{arefinia2024deepffr} presents a fast, end-to-end, and fully automated method for determining FFR using a
 convolutional neural network (CNN) architecture, transfer learning, and a pre-trained DenseNet169 model to estimate FFR
 values from angiographic images. The model architecture consists of feature extraction and classification layers, with
-cross-entropy used as the loss function. A distinctive feature of this approach is the absence of a vessel geometry
-reconstruction stage — the model directly takes input images and outputs the FFR value.
+cross-entropy used as the loss function \cite{arefinia_2024}. A distinctive feature of this approach is the absence of
+a vessel geometry reconstruction stage — the model directly takes input images and outputs the FFR value
+\cite{wang_2019, mineo_2024}.
 
 \begin{figure}[H]
     \centering
@@ -240,17 +243,18 @@ The researchers highlight the following findings: \newline
 \item Diagnostic accuracy: CT-based FFR has demonstrated high accuracy in diagnosing coronary artery disease,
 comparable to invasive methods. Studies such as DISCOVER-FLOW, DeFACTO, and NXT have shown that non-invasive FFR
 correlates strongly with invasive FFR and outperforms standard CT coronary angiography (CTCA) in diagnostic
-performance.
+performance \cite{debruyne_2012, bjarne_2014}.
 
 \item Clinical outcomes: Non-invasive FFR allows for accurate identification of hemodynamically significant stenoses,
 which is essential for decision-making regarding revascularization procedures (e.g., stenting). This helps avoid
-unnecessary interventions in patients with non-critical stenoses.
+unnecessary interventions in patients with non-critical stenoses \cite{morris_2013, belle_2018, chen_2019, cimen_2014}.
 
 \item Advantages over invasive methods: Non-invasive techniques eliminate the risks associated with surgical procedures
-and reduce patient discomfort.
+and reduce patient discomfort \cite{mintz_2015, koo_2011}.
 
 \item Practical clinical application: Integrating non-invasive FFR into clinical practice can enhance the diagnosis and
-treatment of patients suspected of having coronary artery disease, reducing both diagnostic time and costs.
+treatment of patients suspected of having coronary artery disease, reducing both diagnostic time and costs
+\cite{asch_2015, gloekler_2014, dweck_2019}.
 
 \item Future development: The authors emphasize the need for further large-scale studies to validate the diagnostic
 effectiveness and safety of non-invasive FFR methods in routine clinical use.
@@ -264,13 +268,13 @@ boundary detection techniques to deep learning-based models—demonstrate signif
 accuracy and efficiency of FFR estimation. Non-invasive FFR provides a clinically valuable alternative to invasive
 procedures, offering reduced risk, greater patient comfort, and strong diagnostic performance. While current results
 are promising, further development and large-scale clinical validation are needed to ensure the reliability and
-integration of these technologies into routine medical practice.
+integration of these technologies into routine medical practice \cite{zhang_2025, }.
 
 \section{Future Work}
 
 Future research should focus on improving the accuracy and generalizability of non-invasive FFR estimation methods,
-particularly those based on deep learning. Expanding training datasets with diverse clinical cases and CT scan
-protocols will enhance model robustness.
+particularly those based on deep learning \cite{becker_2024, zhang_2025}. Expanding training datasets with diverse
+clinical cases and CT scan protocols will enhance model robustness.
 
 Further efforts are needed to develop fully automated and clinically integrable pipelines that combine segmentation,
 modeling, and FFR calculation. Real-world validation on larger cohorts is essential to confirm diagnostic reliability
